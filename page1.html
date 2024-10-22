@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Survey - Page 1</title>
+</head>
+<body>
+    <h1>Page 1 - Treatment {{ treatment_id }}</h1>
+    <p>{{ question }}</p>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        {% for option in options %}
+            <label>
+                <input type="radio" name="page1_answer" value="{{ option.value }}" required>
+                {{ option.label }}
+            </label><br><br>
+        {% endfor %}
+        <input type="submit" value="Next">
+    </form>
+</body>
+</html>
